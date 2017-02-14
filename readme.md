@@ -34,16 +34,7 @@ Objective: Create a restful API using Express to create a store:
 
 4. Customers Link:
 
-	+ Add new customer Form
-	+ Form contains:
-		+ customer name
-		+ add Button
-		+ validations for existing user
-	+ Table containing:
-		+ customer name
-		+ date customer created
-		+ actions (delete button)
-		+ filter box use ng-filter
+	+ Remaining Issue: Need to add 'ordinal date' functionality.
 
 5. Products Link:
 
@@ -63,7 +54,7 @@ Objective: Create a restful API using Express to create a store:
 	+ How many forms do you need total? 	
 		Answer: 3 (1 for customer, 1 for order, 1 for product)
 	+ Which form should you create first?
-		Answer: Products -> then Customers -> then Orders (you can't make an order without a product or a customer)
+		Answer: Customers -> Products -> Orders (you can't make an order without a product or a customer)
 	+ How many partials do you need total?
 		Answer: 4 including index partial (index partial, #!orders, #!customers, #!products -- and root index so 5 total pages but only 4 are partial)
 	+ How many Angular Controllers then?

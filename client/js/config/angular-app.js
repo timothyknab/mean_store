@@ -6,12 +6,23 @@ app.config(function($routeProvider) {
     $routeProvider
         .when('/', {
             templateUrl: 'html/index.html', // root route partial
-            controller: 'userController',
+            controller: 'dashboardController',
         })
-        .when('/edit/:id', {
-            templateUrl: 'html/edit.html',
-            controller: 'editUserController',
+        // .when('/products', {
+        //     templateUrl: 'html/products.html',
+        //     controller: 'productsController',
+        // })
+        // .when('/orders', {
+        //     templateUrl: 'html/orders.html',
+        //     controller: 'ordersController',
+        // })
+        .when('/customers', {
+            templateUrl: 'html/customers.html',
+            controller: 'customersController',
         })
+        // .when('/settings', {
+        //     templateUrl: 'html/settings.html',
+        // })
         .otherwise({
             redirectTo: '/',
         })

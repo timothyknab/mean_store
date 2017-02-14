@@ -15,14 +15,20 @@
     <!-- Angular App -->
     <script src="js/config/angular-app.js"></script>
     <!-- Angular Controllers -->
-    <script src="js/controllers/angular-user-controller.js"></script>
-    <script src="js/controllers/angular-user-edit-controller.js"></script>
+    <script src="js/controllers/angular-customer-controller.js"></script>
+    <script src="js/controllers/angular-dashboard-controller.js"></script>
     <!-- Angular Factories -->
-    <script src="js/factories/angular-user-factory.js"></script>
+    <script src="js/factories/angular-customer-factory.js"></script>
+    <script src="js/factories/angular-dashboard-factory.js"></script>
 </head>
 <body>
-    <!-- Title -->
-    <h1>My Project Title</h1>
+    <ul id="navigation">
+        <li><a href="#!/">Dashboard</a></li>
+        <li><a href="#!/products">Products</a></li>
+        <li><a href="#!/orders">Orders</a></li>
+        <li><a href="#!/customers">Customers</a></li>
+        <li><a href="#!/settings">Settings</a></li>
+    </ul>
     <!-- Partial Container -->
     <div ng-view><!-- Partials load here --></div>
 </body>

@@ -11,9 +11,6 @@ fieldset {
     margin: 15px;
 }
 
-.error {
-    color: red;
-}
 
 table {
 	width: 100%;
@@ -29,6 +26,27 @@ tr:nth-child(even) {
 
 th, td {
 	padding: 15px;
+}
+
+.error {
+    color: red;
+}
+
+.note {
+    background-color: lightyellow;
+    font-size: 10px;
+    padding: 5px;
+    color: grey;
+    border: 1px dashed lightgrey;
+}
+
+#navigation {
+    list-style: none;
+    -webkit-padding-start: 0px;
+}
+
+#navigation li {
+    display: inline-block;
 }
 
 /*************************/

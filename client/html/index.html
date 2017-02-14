@@ -1,25 +1,28 @@
-<h2>Partial Page!</h2>
-<fieldset><legend>Lorem Ipsum Text!</legend>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+<h2>Welcome to the Dashboard</h2>
+<form>
+    <p>Figure out search box...</p>
+    <input type="text" name="search" id="search" placeholder="search...">
+    <input type="button" value="Filter">
+</form>
+<fieldset><legend>Products:</legend>
+    <p>Insert products with images here</p>
+    <a href="#!/products">Show more...</a>
 </fieldset>
-<fieldset><legend>Form Setup:</legend>
-    <p ng-bind="error" class="error"></p>
-    <!-- Form -->
-    <form ng-submit="create()">
-        <label for="username">
-            <!-- Username Field -->
-            <input type="text" name="username" id="username" ng-model="person.username">
-        </label>
-        <!-- Button -->
-        <input type="submit" value="Create">
-    </form>
+<fieldset><legend>Recent Orders:</legend>
+    <ul>
+        <li>Insert</li>
+        <li>Orders</li>
+        <li>List</li>
+        <li>Here</li>
+    </ul>
+    <a href="#!/orders">Show all orders...</a>
 </fieldset>
-<fieldset><legend>Data:</legend>
-    <!-- Raw Data -->
-    <pre ng-bind="user"></pre>
+<fieldset><legend>New Customers:</legend>
+    <ul>
+        <li>**Tim Knab joined the store (4 days ago)</li>
+        <li>**Julianna Giles joined the store (3 days ago)</li>
+        <li>**Chris Knab joined the store (2 days ago)</li>
+        <li>**Clean these up</li>
+    </ul>
+    <a href="#!/customers">Show all customers...</a>
 </fieldset>
-<!-- Show All Users -->
-<button ng-click="show()">Show All Users</button>
-<ul ng-repeat="user in allUsers">
-    <li><span ng-bind="user.username"></span> <a href="#!/edit/{{user._id}}">Edit</a> | <button ng-click="delete(user)">Delete</button></li>
-</ul>

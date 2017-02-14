@@ -1,12 +1,10 @@
 // Load Controllers:
-var UsersController = require('./../controllers/user-controller');
+var CustomerController = require('./../controllers/customer-controller');
 
 // Server-Side Routes:
 module.exports = function(app) {
     console.log('Server side routes loaded...');
-    app.post('/users', UsersController.create)
-        .get('/users', UsersController.showAll)
-        .get('/users/:id', UsersController.findOne)
-        .put('/users/:id', UsersController.update)
-        .delete('/users/:id', UsersController.delete)
+    app.post('/customers', CustomerController.create)
+        .get('/customers', CustomerController.showAll)
+        .delete('/customers/:id', CustomerController.delete)
 };
