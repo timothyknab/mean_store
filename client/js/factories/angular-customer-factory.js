@@ -26,7 +26,7 @@ app.factory('customerFactory', ['$http', function($http) {
                 showCallback(allCustomers.data);
             })
             .catch(function(err) {
-                console.log('Error showing all useres...', err.data);
+                console.log('Error showing all customers...', err.data);
             })
     };
 

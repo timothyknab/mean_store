@@ -1,8 +1,8 @@
-app.controller('customersController', ['$scope', 'customerFactory', '$location', '$routeParams', function($scope, customerFactory, $location, $routeParams) {
+app.controller('customerController', ['$scope', 'customerFactory', '$location', '$routeParams', function($scope, customerFactory, $location, $routeParams) {
 
     // Callbacks
     var cb = {
-        create: function(newCustomer) {
+        create: function(createdCustomer) {
             $scope.error = '';
             $scope.newCustomer = {};
             $scope.show();

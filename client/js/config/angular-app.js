@@ -8,17 +8,17 @@ app.config(function($routeProvider) {
             templateUrl: 'html/index.html', // root route partial
             controller: 'dashboardController',
         })
-        // .when('/products', {
-        //     templateUrl: 'html/products.html',
-        //     controller: 'productsController',
-        // })
+        .when('/products', {
+            templateUrl: 'html/products.html',
+            controller: 'productController',
+        })
         // .when('/orders', {
         //     templateUrl: 'html/orders.html',
         //     controller: 'ordersController',
         // })
         .when('/customers', {
             templateUrl: 'html/customers.html',
-            controller: 'customersController',
+            controller: 'customerController',
         })
         // .when('/settings', {
         //     templateUrl: 'html/settings.html',

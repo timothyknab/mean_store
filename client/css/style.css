@@ -40,6 +40,19 @@ th, td {
     border: 1px dashed lightgrey;
 }
 
+.product {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    width: 150px;
+    height: 150px;
+    padding: 15px;
+}
+
+.productWrapper {
+    display: inline-block;
+}
+
 #navigation {
     list-style: none;
     -webkit-padding-start: 0px;

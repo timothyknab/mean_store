@@ -5,7 +5,13 @@
     <input type="button" value="Filter">
 </form>
 <fieldset><legend>Products:</legend>
-    <p>Insert products with images here</p>
+    <div ng-repeat="product in latestProducts" class="productWrapper">
+        <div class="product">
+            <img src="{{product.image}}" alt="{{product.name}}">
+            <h4 ng-bind="product.name"></h4>
+            <h5>{{product.quantity}} left...</h5>
+        </div>
+    </div>
     <a href="#!/products">Show more...</a>
 </fieldset>
 <fieldset><legend>Recent Orders:</legend>
@@ -18,11 +24,9 @@
     <a href="#!/orders">Show all orders...</a>
 </fieldset>
 <fieldset><legend>New Customers:</legend>
-    <ul>
-        <li>**Tim Knab joined the store (4 days ago)</li>
-        <li>**Julianna Giles joined the store (3 days ago)</li>
-        <li>**Chris Knab joined the store (2 days ago)</li>
-        <li>**Clean these up</li>
+    <ul ng-repeat="customer in latestCustomers">
+        <li>{{customer.name}} joined the store (<span class='note'>**{{customer.createdAt}} days ago</span>)</li>
     </ul>
+    <p class="note">**Must figure out how to format time from NOW and get how long ago...</p>
     <a href="#!/customers">Show all customers...</a>
 </fieldset>
