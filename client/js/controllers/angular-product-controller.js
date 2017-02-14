@@ -20,19 +20,19 @@ app.controller('productController', ['$scope', 'productFactory', '$location', '$
         },
     };
 
-    // Create Customer:
+    // Create Product:
     $scope.create = function() {
         console.log('Create Process: Angular controller running...', $scope.newProduct);
         productFactory.create($scope.newProduct, cb.create, cb.error);
     };
 
-    // Show All Customers:
+    // Show All Products:
     $scope.show = function() {
-        console.log('Showing all customers...');
+        console.log('Showing all products...');
         productFactory.show(cb.show);
     };
 
-    // Show All Customers on Partial Load:
+    // Show All Products on Partial Load:
     $scope.show();
 
 }]);

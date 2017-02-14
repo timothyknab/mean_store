@@ -29,6 +29,19 @@ app.factory('dashboardFactory', ['$http', function($http) {
             })
     };
 
+    // Show latest 3 Orders:
+    factory.showOrders = function(showOrdersCallback) {
+        console.log('Factory talking...showing latest 3 orders...');
+        $http.get('/dashboard/orders')
+            .then(function(latestOrders) {
+                console.log('Latest 3 orders returned...', latestOrders.data);
+                showOrdersCallback(latestOrders.data);
+            })
+            .catch(function(err) {
+                console.log('Error showing latest orders...', err.data);
+            })
+    };
+
     // Return Factory Object:
     return factory;
 

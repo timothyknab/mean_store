@@ -1,6 +1,7 @@
 // Grab our Mongoose Model:
 var Customer = require('mongoose').model('Customer');
 var Product = require('mongoose').model('Product');
+var Order = require('mongoose').model('Order');
 
 module.exports = {
 
@@ -25,6 +26,23 @@ module.exports = {
             })
             .catch(function(err) {
                 console.log('Error getting latest products on server controller:', err);
+                res.status(500).json(err);
+            })
+    },
+    // Get Latest 3 Orders:
+    showOrders : function(req, res) {
+        Order.find({})
+            .sort({_id: -1})
+            .limit(3)
+            .populate('customer')
+            .populate('product')
+            .exec()
+            .then(function(latestOrders) {
+                console.log('Latest orders found:', latestOrders);
+                res.json(latestOrders);
+            })
+            .catch(function(err) {
+                console.log(err);
                 res.status(500).json(err);
             })
     },

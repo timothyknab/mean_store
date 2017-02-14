@@ -12,16 +12,14 @@
             <h5>{{product.quantity}} left...</h5>
         </div>
     </div>
-    <a href="#!/products">Show more...</a>
+    <a href="#!/products">Show all products...</a>
 </fieldset>
 <fieldset><legend>Recent Orders:</legend>
-    <ul>
-        <li>Insert</li>
-        <li>Orders</li>
-        <li>List</li>
-        <li>Here</li>
+    <ul ng-repeat="order in latestOrders">
+        <li>{{order.customer.name}} purchased {{order.quantity}} {{order.product.name}}...(<span class="note">{{order.createdAt}} ago...</span>)</li>
     </ul>
     <a href="#!/orders">Show all orders...</a>
+    <p class="note">** Must figure out how to do the from NOW to how long ago...</p>
 </fieldset>
 <fieldset><legend>New Customers:</legend>
     <ul ng-repeat="customer in latestCustomers">

@@ -21,7 +21,7 @@ module.exports = {
             })
     },
     showAll: function(req, res) {
-        console.log('Server-side user controller talking...showing all products...');
+        console.log('Server-side product controller talking...showing all products...');
         Product.find({})
             .then(function(allProducts) {
                 console.log('All products found!');

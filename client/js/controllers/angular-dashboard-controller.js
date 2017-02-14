@@ -6,23 +6,26 @@ app.controller('dashboardController', ['$scope', 'dashboardFactory', '$location'
             console.log('Errors returned from server:', err);
             $scope.error = err;
         },
-        showCustomers: function(latestCustomers) {
+        customers: function(latestCustomers) {
             console.log(latestCustomers);
             $scope.latestCustomers = latestCustomers;
         },
-        showProducts: function(latestProducts) {
+        products: function(latestProducts) {
             console.log(latestProducts);
             $scope.latestProducts = latestProducts;
         },
         delete: function() {
             $scope.show();
         },
+        orders: function(latestOrders) {
+            $scope.latestOrders = latestOrders;
+        },
     };
 
     // Show Latest 3 Customer Records:
     $scope.showCustomers = function() {
         console.log('Showing newest customers and limiting to 3...');
-        dashboardFactory.showCustomers(cb.showCustomers);
+        dashboardFactory.showCustomers(cb.customers);
     };
 
     // Get Latest 3 Customers on Parial Load:
@@ -31,10 +34,19 @@ app.controller('dashboardController', ['$scope', 'dashboardFactory', '$location'
     // Show Latest 5 New Products:
     $scope.showProducts = function() {
         console.log('Showing newest 5 products...');
-        dashboardFactory.showProducts(cb.showProducts);
+        dashboardFactory.showProducts(cb.products);
     };
 
     // Get Latest 5 Products on Partial Load:
     $scope.showProducts();
+
+    // Show Latest 3 New Orders:
+    $scope.showOrders = function() {
+        console.log('Showing latest 3 orders...');
+        dashboardFactory.showOrders(cb.orders)
+    };
+
+    // Get Latest 3 New Orders on Partial Load:
+    $scope.showOrders();
 
 }]);

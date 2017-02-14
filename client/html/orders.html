@@ -1,25 +1,50 @@
-<fieldset><legend>Add a new customer:</legend>
+<fieldset><legend>Add a new order:</legend>
     <p ng-bind="error" class="error"></p>
     <!-- Form -->
     <form ng-submit="create()">
-        <label for="customer">
-            <!-- Name Field -->
-            <input type="text" name="customer" id="customer" ng-model="newCustomer.name">
+        <label for="customer"> Customer:
+            <!-- Customer Name -->
+            <select name="customer" id="customer" ng-model="newOrder.customer">
+                <option ng-repeat="customer in allCustomers" value="{{customer._id}}">{{customer.name}}</option>
+            </select>
+        </label>
+        <label for="product"> Choose Product:
+            <!-- Product -->
+            <select name="product" id="product" ng-model="newOrder.product">
+                <option ng-repeat="product in allProducts" value="{{product._id}}">{{product.name}}</option>
+            </select>
+        </label>
+        <label for="quantity"> Order Quantity:
+            <!-- Order Quantity -->
+            <select name="quantity" id="quantity" ng-model="newOrder.quantity">
+                <option value="10">10</option>
+                <option value="20">20</option>
+                <option value="30">30</option>
+                <option value="40">40</option>
+                <option value="50">50</option>
+                <option value="100">100</option>
+                <option value="150">150</option>
+                <option value="200">200</option>
+                <option value="250">250</option>
+                <option value="500">500</option>
+            </select>
         </label>
         <!-- Button -->
-        <input type="submit" value="Add">
+        <input type="submit" value="Order">
     </form>
 </fieldset>
-<div><p>be sure to add search box here.</p></div>
+<div><p class="note">**Be sure to add search box here.</p></div>
 <table>
     <tr>
-        <th>Name:</th>
-        <th>Created:</th>
-        <th>Actions:</th>
+        <th>Customer Name:</th>
+        <th>Product:</th>
+        <th>Quantity:</th>
+        <th>Date:</th>
     </tr>
-    <tr ng-repeat='customer in allCustomers'>
-        <td ng-bind="customer.name"></td>
-        <td ng-bind="customer.createdAt"></td>
-        <td><button ng-click="delete(customer)">Delete</button></td>
+    <tr ng-repeat='order in allOrders'>
+        <td ng-bind="order.customer.name"></td>
+        <td ng-bind="order.product.name"></td>
+        <td ng-bind="order.quantity"></td>
+        <td ng-bind="order.createdAt | date: 'MMMM d, yyyy'"></td>
     </tr>
 </table>

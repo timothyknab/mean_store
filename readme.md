@@ -4,24 +4,12 @@ Objective: Create a restful API using Express to create a store:
 
 2. Dashboard Link:
 
-	+ Show Recent Orders (and show more...)
-	+ Remaining Issue: Set so date is shown in comparison to present.
+	+ Remaining Issue: Need to add 'ordinal date' functionality.
 	+ Remaining Issue: Search box.
 
 3. Orders Link:
 
-	+ Add a new order form
-	+ Form contains:
-		+ Customers Dropdown
-		+ Order # Dropdown
-		+ Product Dropdown
-	+ Order Button
-	+ Table containing:
-		+ Customer name
-		+ Product Ordered
-		+ Quantity Ordered
-		+ Date Ordered
-		+ Filter Box use ng-filter
+	Remaining Issue: Search box.
 
 4. Customers Link:
 
@@ -34,17 +22,15 @@ Objective: Create a restful API using Express to create a store:
 	+ Remaining Issue: Show More button
 
 
-# Let's start with a few questions:
+# Things Left Addressed:
 
-	+ What routing do we want?
-		put `/customers` for customer creation
-		get `/customers` to retrieve all customers
-		delete `/customers/:id` for customer deletion?
-		put `/products` for product creation
-		get `/products` to retrieve all products
-		put `/orders` for order creation
-		get `/orders` to retrieve all orders
-	+ Order Model:
-		+ customer ID: objectID
-		+ quantity: Number
-		+ `products` ID array: empty array holding products objectIDs
+	Orders:
+
+		+ 1: When an order is placed, the quantity of the product is not reduced.
+		+ 2: When an order is placed, the order is not pushed into the user's order array.
+		+ 3: Find a way to adjust for these quantity changes.
+
+	General:
+
+		+ 1: Figure out 'ordinal date' functions.
+		+ 2: Figure out how to make filter search box.
