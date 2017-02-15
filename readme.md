@@ -8,7 +8,8 @@
 
 1. Search Box: How do we create this?
 
-		*Solution*
+		+ *Solution*
+
 		(1) Place an `ng-model={{modelName}}` onto an input field.
 		(2) In your `ng-repeat`, add `| filter: {{modelName}}`.
 		(3) Your input field will now Search:
@@ -23,7 +24,9 @@
 
 2. "Time ago", ie "3 minutes ago" display:
 
-		*Solution* Use momentJS. Add the script tag to your index/html pages
+		+ *Solution*
+
+		Use momentJS. Add the script tag to your index/html pages
 		Then, use the moment functions to manipulate the data handed back
 		from the back end. You can use moment on the back end too, but this
 		would require modifying our actual objects, which we don't want to do.
