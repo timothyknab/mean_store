@@ -33,7 +33,9 @@
         <input type="submit" value="Order">
     </form>
 </fieldset>
-<div><p class="note">**Be sure to add search box here.</p></div>
+<form>
+    <input type="text" name="search" id="search" ng-model="search" placeholder="search...">
+</form>
 <table>
     <tr>
         <th>Customer Name:</th>
@@ -41,10 +43,10 @@
         <th>Quantity:</th>
         <th>Date:</th>
     </tr>
-    <tr ng-repeat='order in allOrders'>
+    <tr ng-repeat='order in allOrders | filter: search'>
         <td ng-bind="order.customer.name"></td>
         <td ng-bind="order.product.name"></td>
         <td ng-bind="order.quantity"></td>
-        <td ng-bind="order.createdAt | date: 'MMMM d, yyyy'"></td>
+        <td ng-bind="order.momentDate"></td>
     </tr>
 </table>

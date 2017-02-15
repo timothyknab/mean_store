@@ -49,6 +49,11 @@ th, td {
     padding: 15px;
 }
 
+.product img {
+    width: 150px;
+    height: 150px;
+}
+
 .productWrapper {
     display: inline-block;
 }
@@ -60,6 +65,10 @@ th, td {
 
 #navigation li {
     display: inline-block;
+}
+
+#search {
+    padding: 10px;
 }
 
 /*************************/

@@ -32,7 +32,6 @@ var ProductSchema = new Schema (
         }, // end description field
         quantity: {
             type: Number,
-            min: [10, 'Product quantity must be no less than 10 items.'],
             max: [500, 'Product quantity must be no greater than 500 items.'],
             required: [true, 'Product quantity required.'],
         }, // end quantity field
@@ -63,7 +62,25 @@ ProductSchema.methods.validateUsername = function(name) {
 // Case insensitive query validation instance method:
 ProductSchema.methods.checkDuplicates = function(name, next) {
     console.log('Product Name Duplicate Validation...case insensitive querying mongo for duplicates...');
-    Product.findOne({name: { $regex : new RegExp("^" + name + "$", "i")}})
+    /*
+        The time evaluations below are so that when a product's quantity is being updated,
+        the duplicate check validaton doesn't get flagged. You could remove this checking,
+        but then duplicate product names could be created. The log below evaluates the timestamp
+        of a product before updating it. If the timestamp is greater than 5 seconds old, the validations
+        bypass the duplicate title check (as there is no way to edit a title once created) and update
+        the product quantity. Note that, if product title edit functionality was implemented, the below
+        validations would have to be refactored.
+    */
+    var created = this.createdAt.getTime();
+    var now = new Date().getTime();
+    console.log(created, now);
+    console.log(now - created);
+    // This area may be need to be updated if product title editing functionality was implemented:
+    if (now - created >= 5000) {
+        console.log('This is not a new product creation and is older than 5 seconds, skipping duplicate check so properties can be updated...');
+        next();
+    } else {
+        Product.findOne({name: { $regex : new RegExp("^" + name + "$", "i")}})
         .then(function(foundProduct) {
             if(foundProduct) { // if user is found, the following error is generated and sent to client (phase 1 passed but phase 2 failed):
                 console.log('Product Name Creation Validation ERROR...existing product has been found...validation failed...', foundProduct);
@@ -79,6 +96,7 @@ ProductSchema.methods.checkDuplicates = function(name, next) {
             console.log('Error performing case insensitive query to MongoDB...', err);
             next(err);
         })
+    }
 };
 
 /*************************/

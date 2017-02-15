@@ -1,5 +1,6 @@
 // Grab our Mongoose Model:
 var Customer = require('mongoose').model('Customer');
+var Order = require('mongoose').model('Order');
 
 module.exports = {
     // Create a customer
@@ -36,10 +37,26 @@ module.exports = {
             })
     },
     delete: function(req, res) {
-        Customer.remove({_id: req.params.id})
-            .then(function() {
-                return res.json('Delete Success!');
-            })
+        // Cancel any Orders the customer has pending (and return qty back to product inventory):
+        Order.find({customer: req.params.id})
+            .populate('product')
+            .populate('customer')
+            .exec()
+            .then(function(allCustomerOrders) {
+                console.log(allCustomerOrders);
+                for (var i = 0; i < allCustomerOrders.length; i++) {
+                    allCustomerOrders[i].returnQuantity(allCustomerOrders[i].product._id, allCustomerOrders[i].quantity);
+                    allCustomerOrders[i].deleteOrder(allCustomerOrders[i]._id)
+                }
+                Customer.remove({_id: req.params.id})
+                    .then(function() {
+                        return res.json('User and order deleted, product inventory returned! Delete success!');
+                    })
+                    .catch(function(err) {
+                        console.log(err);
+                        return res.status(500).json(err);
+                    })
+                })
             .catch(function(err) {
                 console.log(err);
                 return res.status(500).json(err);

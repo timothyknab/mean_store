@@ -7,8 +7,7 @@ app.controller('dashboardController', ['$scope', 'dashboardFactory', '$location'
             $scope.error = err;
         },
         customers: function(latestCustomers) {
-            console.log(latestCustomers);
-            $scope.latestCustomers = latestCustomers;
+            $scope.latestCustomers = $scope.formatTime(latestCustomers);
         },
         products: function(latestProducts) {
             console.log(latestProducts);
@@ -18,8 +17,17 @@ app.controller('dashboardController', ['$scope', 'dashboardFactory', '$location'
             $scope.show();
         },
         orders: function(latestOrders) {
-            $scope.latestOrders = latestOrders;
+            $scope.latestOrders = $scope.formatTime(latestOrders);
         },
+    };
+
+    // Convert Time:
+    $scope.formatTime = function(array) {
+        for (var i = 0; i < array.length; i++) {
+            array[i].fromNow = moment(array[i].createdAt).fromNow();
+        };
+        console.log(array);
+        return array;
     };
 
     // Show Latest 3 Customer Records:
@@ -43,7 +51,7 @@ app.controller('dashboardController', ['$scope', 'dashboardFactory', '$location'
     // Show Latest 3 New Orders:
     $scope.showOrders = function() {
         console.log('Showing latest 3 orders...');
-        dashboardFactory.showOrders(cb.orders)
+        dashboardFactory.showOrders(cb.orders);
     };
 
     // Get Latest 3 New Orders on Partial Load:

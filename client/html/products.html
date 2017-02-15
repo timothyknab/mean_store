@@ -34,12 +34,13 @@
         <input type="submit" value="Create">
     </form>
 </fieldset>
-<div><p class="note">**Be sure to add search box here.</p></div>
-<div ng-repeat="product in allProducts" class="productWrapper">
+<form>
+    <input type="text" name="search" id="search" ng-model="search" placeholder="search...">
+</form>
+<div ng-repeat="product in allProducts | filter: search" class="productWrapper">
     <div class="product">
         <img src="{{product.image}}" alt="{{product.name}}">
         <h4 ng-bind="product.name"></h4>
-        <h5>{{product.quantity}} left...</h5>
+        <h5>**{{product.quantity}} left...</h5>
     </div>
 </div>
-<a href="#" class="note">*Show more...</a>

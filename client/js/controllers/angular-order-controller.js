@@ -7,9 +7,8 @@ app.controller('orderController', ['$scope', 'orderFactory', '$location', '$rout
             $scope.newOrder = {};
             $scope.showOrders();
         },
-        orders: function(allOrders) {
-            console.log(allOrders);
-            $scope.allOrders = allOrders;
+        show: function(allOrders) {
+            $scope.allOrders = $scope.formatTime(allOrders);
         },
         customers: function(allCustomers) {
             console.log(allCustomers);
@@ -21,6 +20,15 @@ app.controller('orderController', ['$scope', 'orderFactory', '$location', '$rout
         },
     };
 
+    // Convert Time:
+    $scope.formatTime = function(array) {
+        for (var i = 0; i < array.length; i++) {
+            array[i].momentDate = moment(array[i].createdAt).format("MMMM Do YYYY");
+        };
+        console.log(array);
+        return array;
+    };
+
     // Create Order:
     $scope.create = function() {
         console.log('Create Process: Angular controller running...', $scope.newOrder);
@@ -30,7 +38,7 @@ app.controller('orderController', ['$scope', 'orderFactory', '$location', '$rout
     // Show All Orders:
     $scope.showOrders = function() {
         console.log('Showing all orders...');
-        orderFactory.showOrders(cb.orders);
+        orderFactory.showOrders(cb.show);
     };
 
     // Show All Orders on Partial Load:

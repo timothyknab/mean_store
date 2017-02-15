@@ -5,10 +5,11 @@ module.exports = {
     // Create an order
     create: function(req, res) {
         console.log('Server-side order controller talking...', req.body);
-        console.log('ORDER REQ BODY !!!!!!!');
         Order.create(req.body)
             .then(function(newOrder) {
                 // do your instance method stuff here
+                console.log('Adjust quantity now...');
+                console.log(newOrder.decreaseQuantity(req.body.product, req.body.quantity))
                 return res.json(newOrder);
             })
             .catch(function(err) {

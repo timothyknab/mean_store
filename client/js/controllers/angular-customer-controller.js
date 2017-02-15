@@ -12,12 +12,20 @@ app.controller('customerController', ['$scope', 'customerFactory', '$location', 
             $scope.error = err;
         },
         show: function(allCustomers) {
-            console.log(allCustomers);
-            $scope.allCustomers = allCustomers;
+            $scope.allCustomers = $scope.formatTime(allCustomers);
         },
         delete: function() {
             $scope.show();
         },
+    };
+
+    // Convert Time:
+    $scope.formatTime = function(array) {
+        for (var i = 0; i < array.length; i++) {
+            array[i].momentDate = moment(array[i].createdAt).format("MMMM Do YYYY");
+        };
+        console.log(array);
+        return array;
     };
 
     // Create Customer:

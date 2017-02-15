@@ -14,10 +14,6 @@ var CustomerSchema = new Schema (
             unique: true, // name must be unique
             dropDups: true,
         }, // end name field
-        orders: [{
-            type: Schema.Types.ObjectId,
-            ref: 'Order'
-        }],
     },
     {
         timestamps: true,
