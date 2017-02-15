@@ -1,42 +1,13 @@
-MEAN Store:
+#MEAN Store:
 
-Objective: Create a restful API using Express to create a store:
+##Objective:
 
-2. Dashboard Link:
++ Create a restful API using Express to create a store:
 
-	+ Remaining Issue: Need to add 'ordinal date' functionality.
+##Development Issues Experienced Log:
 
-3. Orders Link:
+1. Search Box: How do we create this?
 
-	+ Improvement: Error should be displayed when count of products is 0.
-
-4. Customers Link:
-
-	+ Remaining Issue: Need to add 'ordinal date' functionality.
-
-	+ Improvement: Deleting customer does not delete their orders or replenish product counts.
-
-5. Products Link:
-
-	+ Remaining Issue: Filter box use ng-filter
-
-# Things Left Addressed:
-
-	Orders:
-
-		+ 1: When an order is placed, the order is not pushed into the user's order array.
-		+ 2: Find a way to adjust for these quantity changes.
-		+ 3: When orders are selected, quantity offered does not reflect actual quantity. (the qty is confusing)
-
-	General:
-
-		+ 1: Figure out 'ordinal date' functions.
-		+ 2: Figure out how to make filter search box.
-
-
-Issues:
-
-	1. Search Box: How do we create this?
 		*Solution*
 		(1) Place an `ng-model={{modelName}}` onto an input field.
 		(2) In your `ng-repeat`, add `| filter: {{modelName}}`.
@@ -50,7 +21,8 @@ Issues:
 				<!-- repeated contents which can now be searched -->
 			</div>`
 
-	2. "Time ago", ie "3 minutes ago" display:
+2. "Time ago", ie "3 minutes ago" display:
+
 		*Solution* Use momentJS. Add the script tag to your index/html pages
 		Then, use the moment functions to manipulate the data handed back
 		from the back end. You can use moment on the back end too, but this
