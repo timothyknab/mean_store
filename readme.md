@@ -1,12 +1,10 @@
-#MEAN Store:
+# About:
 
-##Objective:
+This is a restful API app, to create a store. Customers can be created or deleted, products and orders can be created and ordered. This app is fun and its features blend nicely. Could be a great start to a more robust eCommerce tool.
 
-+ Create a restful API using Express to create a store:
+## Issues Experienced Log:
 
-##Development Issues Experienced Log:
-
-1. Search Box: How do we create this?
+- Search Box: How do we create this?
 
 		+ *Solution*
 
@@ -22,7 +20,7 @@
 				<!-- repeated contents which can now be searched -->
 			</div>`
 
-2. "Time ago", ie "3 minutes ago" display:
+- "Time ago", ie "3 minutes ago" display:
 
 		+ *Solution*
 
